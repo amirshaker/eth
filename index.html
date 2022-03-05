@@ -68,6 +68,14 @@
             <audio id="n1" src="n1.mp3" preload="auto"></audio>
           </div>
         </div>
+        <div class="col-sm-12 col-md-4 col-xl-4">
+          <div class="mb-3">
+            <label for="showprice" class="form-label" style="color: white"
+              >نمایش قیمت وارد شده</label
+            >
+            <input type="text" class="form-control" id="showprice" name="showprice" />
+          </div>
+        </div>
       </div>
     </div>
 
@@ -92,6 +100,8 @@
           dataType: "json",
           success: function (data) {
             var get = document.getElementById("get");
+            var showprice = document.getElementById("showprice");
+            showprice.value = separate(get.value);
             var newDate = data.trades;
             var s = new Date(newDate[0].time).toLocaleTimeString();
             var showDate = document.getElementById("date");
